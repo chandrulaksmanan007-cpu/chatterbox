@@ -361,7 +361,8 @@ def on_typing(data):
 def on_stop_typing(data):
     emit("user_stop_typing", data, room=f"chat_{data.get('chatId')}", include_self=False)
 
-
 if __name__ == "__main__":
-    print("🚀 ChatterBox Backend running on http://localhost:5000")
-    socketio.run(app, debug=True, port=5000, host="0.0.0.0")
+    import eventlet
+    import eventlet.wsgi
+    print("🚀 ChatterBox Backend running!")
+    socketio.run(app, debug=False, port=5000, host="0.0.0.0")
