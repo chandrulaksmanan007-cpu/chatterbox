@@ -1,0 +1,24 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Flask Backend",
+      "type": "shell",
+      "command": "cd backend && python app.py",
+      "group": "build",
+      "presentation": { "panel": "new", "reveal": "always" }
+    },
+    {
+      "label": "Start React Frontend",
+      "type": "shell",
+      "command": "cd frontend && npm start",
+      "group": "build",
+      "presentation": { "panel": "new", "reveal": "always" }
+    },
+    {
+      "label": "🚀 Start ChatterBox (Both)",
+      "dependsOn": ["Start Flask Backend", "Start React Frontend"],
+      "group": { "kind": "build", "isDefault": true }
+    }
+  ]
+}
